@@ -1,0 +1,339 @@
+/*
+  Pledge — Luxury + Apple design layer
+  Palette: midnight navy, warm white, restrained champagne gold.
+  How to use:
+  1. Add this file to the same folder as index.html and style.css.
+  2. In index.html, add this AFTER the existing style.css link:
+     <link rel="stylesheet" href="pledge-luxury.css">
+  3. Keep the existing style.css and JavaScript; this file is a visual layer only.
+*/
+
+:root {
+  --pledge-navy: #101d35;
+  --pledge-navy-2: #172947;
+  --pledge-blue: #294a78;
+  --pledge-gold: #b99a5b;
+  --pledge-gold-soft: #e8dcc0;
+  --pledge-ink: #172033;
+  --pledge-muted: #737d8e;
+  --pledge-page: #f5f6f8;
+  --pledge-surface: #ffffff;
+  --pledge-border: rgba(20, 36, 61, .09);
+  --pledge-shadow: 0 12px 34px rgba(16, 29, 53, .07);
+  --pledge-shadow-hover: 0 18px 42px rgba(16, 29, 53, .12);
+  --pledge-radius: 20px;
+  --pledge-radius-sm: 13px;
+  --pledge-transition: 180ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--pledge-page);
+  color: var(--pledge-ink);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+    "Heebo", "Arial", sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body, input, button, select, textarea {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+    "Heebo", "Arial", sans-serif;
+}
+
+a {
+  color: var(--pledge-blue);
+  text-decoration: none;
+  transition: color var(--pledge-transition);
+}
+
+a:hover {
+  color: var(--pledge-navy);
+}
+
+h1, h2, h3, h4 {
+  color: var(--pledge-navy);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(2rem, 4vw, 3.25rem); }
+h2 { font-size: clamp(1.45rem, 2.5vw, 2.1rem); }
+h3 { font-size: 1.15rem; }
+
+p {
+  color: var(--pledge-muted);
+}
+
+img, svg {
+  max-width: 100%;
+}
+
+/* Main layout: safely styles common app wrappers without requiring markup changes. */
+main, .main, .main-content, .content, .page-content, .dashboard,
+.app-container, .container, .wrapper {
+  min-width: 0;
+}
+
+.container, .app-container, .wrapper {
+  width: min(100% - 32px, 1180px);
+  margin-inline: auto;
+}
+
+/* Header / navigation */
+header, .header, .site-header, .app-header, .navbar, nav {
+  transition: background var(--pledge-transition), box-shadow var(--pledge-transition);
+}
+
+header, .site-header, .app-header, .navbar {
+  background: rgba(255, 255, 255, .9);
+  border-bottom: 1px solid var(--pledge-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+nav a, .nav-link, .menu a {
+  border-radius: 10px;
+  transition: background var(--pledge-transition), color var(--pledge-transition);
+}
+
+nav a:hover, .nav-link:hover, .menu a:hover {
+  background: rgba(185, 154, 91, .12);
+  color: var(--pledge-navy);
+}
+
+/* Cards and panels */
+.card, .stat-card, .dashboard-card, .feature-card, .panel, .auth-card,
+.form-card, .pledge-card, .learning-card, .donation-card, .content-card {
+  background: var(--pledge-surface);
+  border: 1px solid var(--pledge-border);
+  border-radius: var(--pledge-radius);
+  box-shadow: var(--pledge-shadow);
+  transition: transform var(--pledge-transition), box-shadow var(--pledge-transition),
+    border-color var(--pledge-transition);
+}
+
+.card:hover, .stat-card:hover, .dashboard-card:hover, .feature-card:hover,
+.pledge-card:hover, .learning-card:hover, .donation-card:hover, .content-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--pledge-shadow-hover);
+  border-color: rgba(185, 154, 91, .35);
+}
+
+/* Buttons */
+button, .button, .btn, input[type="button"], input[type="submit"] {
+  min-height: 44px;
+  border-radius: 12px;
+  font-weight: 650;
+  letter-spacing: -.01em;
+  cursor: pointer;
+  transition: transform var(--pledge-transition), box-shadow var(--pledge-transition),
+    background var(--pledge-transition), border-color var(--pledge-transition);
+}
+
+button:hover, .button:hover, .btn:hover, input[type="button"]:hover,
+input[type="submit"]:hover {
+  transform: translateY(-1px);
+}
+
+button:active, .button:active, .btn:active {
+  transform: translateY(0);
+}
+
+button[type="submit"], .btn-primary, .button-primary, .primary-button,
+input[type="submit"] {
+  color: #fff;
+  background: linear-gradient(135deg, var(--pledge-navy), var(--pledge-navy-2));
+  border: 1px solid transparent;
+  box-shadow: 0 7px 18px rgba(16, 29, 53, .16);
+}
+
+button[type="submit"]:hover, .btn-primary:hover, .button-primary:hover,
+.primary-button:hover, input[type="submit"]:hover {
+  box-shadow: 0 10px 24px rgba(16, 29, 53, .22);
+}
+
+.btn-secondary, .button-secondary, .secondary-button {
+  color: var(--pledge-navy);
+  background: #fff;
+  border: 1px solid var(--pledge-border);
+}
+
+.btn-gold, .button-gold, .gold-button {
+  color: var(--pledge-navy);
+  background: linear-gradient(135deg, #efe4c9, var(--pledge-gold-soft));
+  border: 1px solid rgba(185, 154, 91, .4);
+}
+
+/* Inputs */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+select, textarea {
+  width: 100%;
+  min-height: 46px;
+  color: var(--pledge-ink);
+  background: #fff;
+  border: 1px solid #dce1e8;
+  border-radius: var(--pledge-radius-sm);
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color var(--pledge-transition), box-shadow var(--pledge-transition);
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--pledge-gold);
+  box-shadow: 0 0 0 4px rgba(185, 154, 91, .14);
+}
+
+label {
+  display: inline-block;
+  color: var(--pledge-navy);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  accent-color: var(--pledge-navy);
+}
+
+/* Auth screens */
+.auth-container, .auth-wrapper, .login-container, .login-wrapper, .auth-page {
+  width: min(100% - 32px, 460px);
+  margin: clamp(28px, 7vh, 80px) auto;
+}
+
+.auth-card, .login-card, .signup-card, .auth-form {
+  padding: clamp(22px, 4vw, 36px);
+}
+
+.auth-card h1, .login-card h1, .signup-card h1, .auth-form h1 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.auth-card form, .login-card form, .signup-card form, .auth-form form {
+  display: grid;
+  gap: 14px;
+}
+
+/* Dashboard highlights */
+.stat-value, .metric-value, .amount, .total-value {
+  color: var(--pledge-navy);
+  font-weight: 750;
+  letter-spacing: -.035em;
+  font-variant-numeric: tabular-nums;
+}
+
+.badge, .tag, .status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: #775f2d;
+  background: rgba(185, 154, 91, .15);
+  border: 1px solid rgba(185, 154, 91, .2);
+  font-size: .82rem;
+  font-weight: 650;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--pledge-border);
+  border-radius: 16px;
+}
+
+th {
+  color: var(--pledge-navy);
+  background: #f0f2f6;
+  font-weight: 700;
+  text-align: start;
+}
+
+th, td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--pledge-border);
+}
+
+tr:last-child td { border-bottom: 0; }
+
+/* Dialogs and notices */
+dialog, .modal, .dialog, .toast, .alert {
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(16, 29, 53, .2);
+}
+
+dialog {
+  border: 1px solid var(--pledge-border);
+  padding: 24px;
+}
+
+.alert, .notice, .message {
+  padding: 12px 15px;
+  border-radius: 12px;
+}
+
+/* Focus accessibility */
+:focus-visible {
+  outline: 3px solid rgba(185, 154, 91, .75);
+  outline-offset: 3px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* Mobile-first refinements */
+@media (max-width: 640px) {
+  body {
+    font-size: 15px;
+  }
+
+  .container, .app-container, .wrapper {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .card, .stat-card, .dashboard-card, .feature-card, .panel,
+  .auth-card, .form-card, .pledge-card, .learning-card,
+  .donation-card, .content-card {
+    border-radius: 17px;
+  }
+
+  button, .button, .btn, input[type="button"], input[type="submit"] {
+    min-height: 46px;
+  }
+
+  th, td {
+    padding: 10px 12px;
+  }
+
+  /* Keep controls comfortable on touch screens. */
+  input, select, textarea, button {
+    font-size: 16px;
+  }
+}
